@@ -1,0 +1,46 @@
+[
+    {
+        "label": "randrange",
+        "importPath": "random",
+        "description": "random",
+        "isExtraImport": true,
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "displayBoard",
+        "kind": 2,
+        "importPath": "tictactoe",
+        "description": "tictactoe",
+        "peekOfCode": "def displayBoard(board):\n    print(\"+\",\"-\"*24,\"+\",sep=\"\")\n    for row in board:\n        print(\"|\",\" \"*5,\"|\",\" \"*6,\"|\",\" \"*5,\"|\")\n        print(\"|\",\" \",row[0],\" \",\"|\",\" \"*2,row[1],\" \",\"|\",\" \",row[2],\" \",\"|\")\n        print(\"|\",\" \"*5,\"|\",\" \"*6,\"|\",\" \"*5,\"|\")\n        print(\"+\",\"-\"*24,\"+\",sep=\"\")\ndef victory(computerMoves,humanMoves):\n    combinations = [(1,2,3),(1,5,9),(1,4,7),(2,5,8),(3,5,7),(4,5,6),(7,8,9),(3,6,9)]\n    flag = 0",
+        "detail": "tictactoe",
+        "documentation": {}
+    },
+    {
+        "label": "victory",
+        "kind": 2,
+        "importPath": "tictactoe",
+        "description": "tictactoe",
+        "peekOfCode": "def victory(computerMoves,humanMoves):\n    combinations = [(1,2,3),(1,5,9),(1,4,7),(2,5,8),(3,5,7),(4,5,6),(7,8,9),(3,6,9)]\n    flag = 0\n    for rows in combinations:\n        if all(move in humanMoves for move in rows):\n            flag = 1\n    for rows in combinations:\n        if all(move in computerMoves for move in rows):\n            flag =2\n    return flag",
+        "detail": "tictactoe",
+        "documentation": {}
+    },
+    {
+        "label": "takeUser",
+        "kind": 2,
+        "importPath": "tictactoe",
+        "description": "tictactoe",
+        "peekOfCode": "def takeUser(board,humanMoves,computerMoves):    \n    userInput = int(input(\"Enter your move>>>\"))\n    if(userInput< 1 and userInput >10) or userInput in humanMoves or userInput in computerMoves:\n        print(\"Invalid input\")\n    elif(userInput<=3):\n        board[0][userInput%3-1] ='0'\n    elif(userInput>3 and userInput<=6):\n        board[1][userInput%3-1]='0'\n    else:\n        board[2][userInput%3-1]='0'",
+        "detail": "tictactoe",
+        "documentation": {}
+    },
+    {
+        "label": "play",
+        "kind": 2,
+        "importPath": "tictactoe",
+        "description": "tictactoe",
+        "peekOfCode": "def play():   \n    computerMoves = [5]\n    humanMoves=[]\n    board = [[1,2,3],[4,5,6],[7,8,9]]\n    board[1][1]='X'\n    print(\"Initial board: \")   \n    displayBoard(board)\n    while True:\n        takeUser(board,humanMoves,computerMoves)\n        flag = victory(computerMoves,humanMoves)",
+        "detail": "tictactoe",
+        "documentation": {}
+    }
+]
