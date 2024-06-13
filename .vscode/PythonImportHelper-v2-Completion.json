@@ -30,7 +30,7 @@
         "kind": 2,
         "importPath": "tictactoe",
         "description": "tictactoe",
-        "peekOfCode": "def takeUser(board,humanMoves,computerMoves):    \n    userInput = int(input(\"Enter your move>>>\"))\n    if(userInput< 1 and userInput >10) or userInput in humanMoves or userInput in computerMoves:\n        print(\"Invalid input\")\n    elif(userInput<=3):\n        board[0][userInput%3-1] ='0'\n    elif(userInput>3 and userInput<=6):\n        board[1][userInput%3-1]='0'\n    else:\n        board[2][userInput%3-1]='0'",
+        "peekOfCode": "def takeUser(board,humanMoves,computerMoves):    \n    userInput = int(input(\"Enter your move>>>\"))\n    if(userInput< 1 and userInput >10) or userInput in \\\n        humanMoves or userInput in computerMoves:\n        print(\"Invalid input\")\n    elif(userInput<=3):\n        board[0][userInput%3-1] ='O'\n    elif(userInput>3 and userInput<=6):\n        board[1][userInput%3-1]='O'\n    else:",
         "detail": "tictactoe",
         "documentation": {}
     },
@@ -39,7 +39,7 @@
         "kind": 2,
         "importPath": "tictactoe",
         "description": "tictactoe",
-        "peekOfCode": "def play():   \n    computerMoves = [5]\n    humanMoves=[]\n    board = [[1,2,3],[4,5,6],[7,8,9]]\n    board[1][1]='X'\n    print(\"Initial board: \")   \n    displayBoard(board)\n    while True:\n        takeUser(board,humanMoves,computerMoves)\n        flag = victory(computerMoves,humanMoves)",
+        "peekOfCode": "def play():   \n    computerMoves = [5]\n    humanMoves=[]\n    board = [[1,2,3],[4,'X',6],[7,8,9]]\n    print(\"Initial board: \")   \n    displayBoard(board)\n    while True:\n        takeUser(board,humanMoves,computerMoves)\n        flag = victory(computerMoves,humanMoves)\n        if flag == 1:",
         "detail": "tictactoe",
         "documentation": {}
     }

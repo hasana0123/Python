@@ -1,5 +1,4 @@
 from random import randrange
-# from tictactoe import computerMoves
 
 
 def displayBoard(board):
@@ -21,21 +20,21 @@ def victory(computerMoves,humanMoves):
     return flag
 def takeUser(board,humanMoves,computerMoves):    
     userInput = int(input("Enter your move>>>"))
-    if(userInput< 1 and userInput >10) or userInput in humanMoves or userInput in computerMoves:
+    if(userInput< 1 and userInput >10) or userInput in \
+        humanMoves or userInput in computerMoves:
         print("Invalid input")
     elif(userInput<=3):
-        board[0][userInput%3-1] ='0'
+        board[0][userInput%3-1] ='O'
     elif(userInput>3 and userInput<=6):
-        board[1][userInput%3-1]='0'
+        board[1][userInput%3-1]='O'
     else:
-        board[2][userInput%3-1]='0'
+        board[2][userInput%3-1]='O'
     humanMoves.append(userInput)
     displayBoard(board)
 def play():   
     computerMoves = [5]
     humanMoves=[]
-    board = [[1,2,3],[4,5,6],[7,8,9]]
-    board[1][1]='X'
+    board = [[1,2,3],[4,'X',6],[7,8,9]]
     
     print("Initial board: ")   
     displayBoard(board)
@@ -60,6 +59,7 @@ def play():
                 board[2][random%3-1]='X'
 
             computerMoves.append(random)
+            print("Computer chooses: ",random)
             displayBoard(board)
             flag = victory(computerMoves,humanMoves)
             if flag==2:
@@ -67,7 +67,7 @@ def play():
                 break
             elif len(humanMoves)+len(computerMoves)==9:
                 print("Draw!")
-                break;
+                break
             else:
                 continue
 play()
